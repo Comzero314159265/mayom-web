@@ -10,4 +10,9 @@ class Project extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function teams()
+    {
+        return $this->hasMany('App\Team');
+    }
 }

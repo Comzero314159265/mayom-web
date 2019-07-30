@@ -1,0 +1,67 @@
+{
+    "fields": [
+        {
+            "name": "user_id",
+            "type": "bigint#unsigned"
+        },
+        {
+            "name": "team_id",
+            "type": "integer#unsigned"
+        },
+        {
+            "name": "member_role_id",
+            "type": "integer#unsigned"
+        }
+    ],
+    "foreign_keys": [
+        {
+            "column": "user_id",
+            "references": "id",
+            "on": "users",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "team_id",
+            "references": "id",
+            "on": "teams",
+            "onDelete": "cascade"
+        },
+        {
+            "column": "member_role_id",
+            "references": "id",
+            "on": "member_roles",
+            "onDelete": "cascade"
+        }
+    ],
+    "relationships": [
+        {
+            "name": "user",
+            "type": "belongsTo",
+            "class": "App\\User"
+        },
+        {
+            "name": "team",
+            "type": "belongsTo",
+            "class": "App\\Team"
+        },
+        {
+            "name": "member_role",
+            "type": "belongsTo",
+            "class": "App\\MemberRole"
+        }
+    ],
+    "validations": [
+        {
+            "field": "user_id",
+            "rules": "required"
+        },
+        {
+            "field": "team_id",
+            "rules": "required"
+        },
+        {
+            "field": "member_role_id",
+            "rules": "required"
+        }
+    ]
+}
